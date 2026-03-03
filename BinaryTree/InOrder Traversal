@@ -1,0 +1,35 @@
+Question Link--https://leetcode.com/problems/binary-tree-inorder-traversal/
+
+Solution--
+
+class Solution {
+
+    // This method initializes the result list
+    // and starts the inorder traversal
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        inorderHelper(root, result);
+        return result;
+    }
+
+    // Recursive helper method to perform inorder traversal
+    // Inorder order: Left -> Root -> Right
+    public void inorderHelper(TreeNode node, List<Integer> result) {
+
+        // Base case: if current node is null, stop recursion
+        if (node == null) {
+            return;
+        }
+
+        // Step 1: Traverse left subtree
+        inorderHelper(node.left, result);
+
+        // Step 2: Visit the root node
+        result.add(node.val);
+
+        // Step 3: Traverse right subtree
+        inorderHelper(node.right, result);
+
+        return;
+    }
+}

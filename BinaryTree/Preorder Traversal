@@ -1,0 +1,36 @@
+Question link --- https://leetcode.com/problems/binary-tree-preorder-traversal/
+
+
+Solution--
+
+ class Solution {
+
+    // This method initializes the result list
+    // and starts the preorder traversal
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        preorderHelper(root, result);
+        return result;
+    }
+
+    // Recursive helper method to perform preorder traversal
+    // Preorder order: Root -> Left -> Right
+    public void preorderHelper(TreeNode node, List<Integer> result) {
+        
+        // Base case: if node is null, return
+        if (node == null) {
+            return;
+        }
+
+        // Step 1: Visit the root node
+        result.add(node.val);
+
+        // Step 2: Traverse left subtree
+        preorderHelper(node.left, result);
+
+        // Step 3: Traverse right subtree
+        preorderHelper(node.right, result);
+
+        return;
+    }
+}

@@ -1,0 +1,39 @@
+Question link ---- https://leetcode.com/problems/binary-tree-postorder-traversal/description/
+
+Solution--
+
+  class Solution {
+
+    // Main method that returns the postorder traversal of the binary tree
+    public List<Integer> postorderTraversal(TreeNode root) {
+
+        // List to store the traversal result
+        List<Integer> resultList = new ArrayList<>();
+
+        // Call helper method to fill the list
+        performPostorderTraversal(root, resultList);
+
+        // Return the final traversal list
+        return resultList;
+    }
+
+    // Helper recursive method to perform postorder traversal
+    public void performPostorderTraversal(TreeNode currentNode, List<Integer> resultList) {
+
+        // Base case: if the node is null, simply return
+        if (currentNode == null) {
+            return;
+        }
+
+        // Traverse the left subtree
+        performPostorderTraversal(currentNode.left, resultList);
+
+        // Traverse the right subtree
+        performPostorderTraversal(currentNode.right, resultList);
+
+        // Visit the current node and add its value to the result list
+        resultList.add(currentNode.val);
+
+        return;
+    }
+}

@@ -1,0 +1,54 @@
+Question link ---- https://leetcode.com/problems/same-tree/
+
+Solution---
+    class Solution {
+
+    // Global variable to store whether both trees are identical
+    boolean areTreesSame = true;
+
+    // Helper method to recursively compare nodes of both trees
+    public void checkIfTreesAreSame(TreeNode firstNode, TreeNode secondNode) {
+
+        // Case 1: If both nodes are null, they are equal at this position
+        if (firstNode == null && secondNode == null) {
+            areTreesSame = areTreesSame && true;
+        }
+
+        // Case 2: If one node is null and the other is not, trees are not the same
+        if ((firstNode == null && secondNode != null) || (firstNode != null && secondNode == null)) {
+            areTreesSame = areTreesSame && false;
+        }
+
+        // Case 3: If both nodes exist, compare their values
+        if (firstNode != null && secondNode != null) {
+
+            // Check if current node values are equal
+            if (firstNode.val == secondNode.val) {
+                areTreesSame = areTreesSame && true;
+            } else {
+                areTreesSame = areTreesSame && false;
+            }
+
+            // Recursively compare left subtree
+            checkIfTreesAreSame(firstNode.left, secondNode.left);
+
+            // Recursively compare right subtree
+            checkIfTreesAreSame(firstNode.right, secondNode.right);
+        }
+
+        return;
+    }
+
+    // Main method that checks whether two binary trees are identical
+    public boolean isSameTree(TreeNode firstRoot, TreeNode secondRoot) {
+
+        // Reset global result before starting comparison
+        areTreesSame = true;
+
+        // Start recursive comparison
+        checkIfTreesAreSame(firstRoot, secondRoot);
+
+        // Return final result
+        return areTreesSame;
+    }
+}

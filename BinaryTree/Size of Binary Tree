@@ -1,0 +1,24 @@
+Question link----- https://www.geeksforgeeks.org/problems/size-of-binary-tree/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
+
+solution---
+    class Solution {
+
+    // Method to calculate the total number of nodes in a binary tree
+    public static int getSize(Node root) {
+
+        // Base case:
+        // If the current node is null, the size contribution is 0
+        if (root == null) {
+            return 0;
+        }
+
+        // Recursively calculate the number of nodes in the left subtree
+        int leftSubtreeSize = getSize(root.left);
+
+        // Recursively calculate the number of nodes in the right subtree
+        int rightSubtreeSize = getSize(root.right);
+
+        // Total size = nodes in left subtree + nodes in right subtree + current node
+        return leftSubtreeSize + rightSubtreeSize + 1;
+    }
+}

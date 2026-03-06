@@ -1,0 +1,25 @@
+Question link -- https://www.geeksforgeeks.org/problems/sum-of-binary-tree/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
+
+
+Solution -- 
+    class Solution {
+
+    // Function to calculate the sum of all nodes in a Binary Tree
+    static int sumBT(Node root) {
+
+        // Base case:
+        // If the current node is null, it contributes 0 to the sum
+        if (root == null) {
+            return 0;
+        }
+
+        // Recursively calculate the sum of nodes in the left subtree
+        int leftSubtreeSum = sumBT(root.left);
+
+        // Recursively calculate the sum of nodes in the right subtree
+        int rightSubtreeSum = sumBT(root.right);
+
+        // Total sum = left subtree sum + right subtree sum + current node value
+        return leftSubtreeSum + rightSubtreeSum + root.data;
+    }
+}

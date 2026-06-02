@@ -2,7 +2,7 @@
 //Time Complexity = O(n)
 //Space Complexity = O(1)
 
-
+//You can do with fast and slow pointer also but when i was learning i did it first so i m pushing this code only.
 
 
 public Node insertInMiddle(Node head, int data) {

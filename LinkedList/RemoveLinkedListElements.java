@@ -1,4 +1,4 @@
-//GFG Question link= https://leetcode.com/problems/remove-linked-list-elements/
+//LeetCode Question link= https://leetcode.com/problems/remove-linked-list-elements/
 //Time Complexity = O(n)
 //Space Complexity = O(1)
 
